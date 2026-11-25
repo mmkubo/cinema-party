@@ -1,0 +1,28 @@
+<header class="border-bottom border-dark">
+  <nav class="navbar">
+    <div class="container">
+
+      <%= link_to "CINEMA PARTY", root_path,
+          class: "navbar-brand fw-bold" %>
+
+      <div class="d-flex align-items-center gap-4">
+
+        <span>あの映画なんだっけ？</span>
+
+        <% if Current.user.present? %>
+
+          <span>MY PAGE</span>
+          <span>LOG OUT</span>
+
+        <% else %>
+
+          <span>LOG IN</span>
+          <span>SIGN UP</span>
+
+        <% end %>
+
+      </div>
+
+    </div>
+  </nav>
+</header>

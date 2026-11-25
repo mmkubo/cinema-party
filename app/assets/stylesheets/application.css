@@ -11,4 +11,130 @@
 
  body {
   background-image: asset-url("hoge.jpg");
+  color: var(--cinema-text);
+
+}
+
+:root {
+  --cinema-bg: #c9dce0;
+  --cinema-accent: #e43818;
+  --cinema-text: #171717;
+  --cinema-light: #f7f4ee;
+}
+
+
+/* Header */
+
+.site-header {
+  background-color: var(--cinema-light);
+}
+
+.site-logo {
+  color: var(--cinema-text);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.site-logo:hover {
+  color: var(--cinema-accent);
+}
+
+.site-nav-link {
+  color: var(--cinema-text);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.site-nav-link:hover {
+  color: var(--cinema-accent);
+}
+
+
+/* Top */
+
+.top-visual .container {
+  transform: translateY(-35px);
+}
+
+.top-visual {
+  flex: 1;
+  width: 100%;
+  background-color: var(--cinema-bg);
+  display: flex;
+  align-items: center;
+}
+
+.top-title {
+  color: var(--cinema-accent);
+  font-size: 136px;
+  line-height: 0.82;
+  letter-spacing: 3px;
+}
+
+.top-title-spacer {
+  visibility: hidden;
+}
+
+.top-catch {
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+.top-search {
+  max-width: 520px;
+}
+
+.top-search .form-control {
+  background-color: var(--cinema-light);
+  color: var(--cinema-text);
+}
+
+.top-search .form-control::placeholder {
+  color: #777;
+}
+
+.top-search .form-control:focus {
+  background-color: var(--cinema-light);
+  border-color: var(--cinema-text);
+  box-shadow: none;
+}
+
+.top-search .btn {
+  background-color: var(--cinema-accent);
+  color: var(--cinema-light);
+}
+
+.top-search .btn:hover {
+  background-color: var(--cinema-text);
+  color: var(--cinema-light);
+}
+
+
+/* Footer */
+
+.site-footer {
+  background-color: var(--cinema-light);
+  color: var(--cinema-text);
+  letter-spacing: 1px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 991px) {
+  .top-visual {
+    padding: 80px 0;
+  }
+
+  .top-visual .container {
+    transform: none;
+  }
+
+  .top-title {
+    font-size: 78px;
+  }
+
+  .top-search {
+    margin: 0 auto;
+  }
 }

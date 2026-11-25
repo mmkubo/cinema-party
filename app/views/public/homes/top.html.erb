@@ -1,12 +1,46 @@
-<h1>CINEMA PARTY</h1>
+<section class="top-visual">
+  <div class="container">
+    <div class="row align-items-center">
 
-<% if authenticated_user? %>
-  <p>ログイン中：<%= current_user.name %></p>
+      <!-- Left -->
+      <div class="col-12 col-lg-6">
+        <h1 class="top-title fw-bold mb-0">
+          <span class="d-block">CINEMA</span>
 
-  <%= button_to "ログアウト",
-                destroy_session_path,
-                method: :delete %>
-<% else %>
-  <%= link_to "新規登録", new_registration_path %>
-  <%= link_to "ログイン", new_session_path %>
-<% end %>
+          <span class="d-block">
+            <span class="top-title-spacer">CI</span>PARTY
+          </span>
+        </h1>
+      </div>
+
+      <!-- Right -->
+      <div class="col-12 col-lg-5 offset-lg-1">
+
+        <p class="top-catch mb-4">
+          WATCH IT. SHOUT IT.
+        </p>
+
+        <p class="top-description mb-5">
+          映画を観た、その気持ちを叫ぼう。
+        </p>
+
+        <div class="input-group top-search">
+          <input
+            type="text"
+            class="form-control rounded-0 border-dark py-3"
+            placeholder="映画タイトルを入力"
+          >
+
+          <button
+            class="btn rounded-0 border-dark px-4"
+            type="button"
+          >
+            SEARCH
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
