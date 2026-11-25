@@ -12,4 +12,31 @@
 
 <h2>Shout</h2>
 
+  <% if authenticated_user? %>
+    <%= form_with model: [@movie, @shout] do |f| %>
+      <div>
+        <%= f.text_area :body, placeholder: "この映画について叫ぶ", required: true %>
+      </div>
+
+      <%= f.submit "Shout" %>
+    <% end %>
+  <% else %>
+    <p>ログインが必要です。</p>
+  <% end %>
+
+  <% @shouts.each do |shout| %>
+    <div>
+      <p><%= shout.user.name %></p>
+      <p><%= shout.body %></p>
+
+      <% if Current.user == shout.user %>
+        <%= button_to "削除",
+                      shout_path(shout),
+                      method: :delete,
+                      data: { turbo_confirm: "削除しますか？" } %>
+      <% end %>
+    </div>
+  <% end %>
+
+
 <h2>Note</h2>

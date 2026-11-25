@@ -1,6 +1,10 @@
 class Public::UsersController < Public::ApplicationController
   before_action :set_user, only: [:show]
 
+  def mypage
+    @user = Current.user
+  end
+
   def show
   end
 

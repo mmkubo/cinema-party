@@ -1,0 +1,23 @@
+<h1>マイページ</h1>
+
+<div>
+  <p>ユーザー名：<%= @user.name %></p>
+  <p>メールアドレス：<%= @user.email_address %></p>
+
+  <%= link_to "プロフィール編集", edit_user_path(@user) %>
+</div>
+
+<div>
+  <h2>観る予定</h2>
+  <p>観る予定の映画はまだありません。</p>
+</div>
+
+<div>
+  <h2>Note</h2>
+  <p>投稿したNoteはまだありません。</p>
+</div>
+
+<div>
+  <h2>Q&A</h2>
+  <p>投稿したQ&Aはまだありません。</p>
+</div>

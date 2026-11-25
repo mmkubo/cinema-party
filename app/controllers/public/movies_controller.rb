@@ -4,5 +4,7 @@ class Public::MoviesController < Public::ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @shout = Shout.new
+    @shouts = @movie.shouts.order(created_at: :desc)
   end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: "homes#top"
+    get "mypage", to: "users#mypage", as: :mypage
 
     # 新規登録
     get "users/sign_up", to: "registrations#new", as: :new_registration
@@ -15,12 +16,18 @@ Rails.application.routes.draw do
     # パスワード再設定
     resources :passwords, param: :token
 
-    resources :movies, only: [:show]
+    resources :movies, only: [:show] do
+      resources :shouts, only: [:create]
+    end
+
+    resources :shouts, only: [:destroy]
+
     resources :users, only: [:show, :edit, :update] do
       member do
         patch :withdraw
       end
     end
+    
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -1,0 +1,11 @@
+class CreateShouts < ActiveRecord::Migration[8.0]
+  def change
+    create_table :shouts do |t|
+      t.references :user, null: false, foreign_key: true
+      t.references :movie, null: false, foreign_key: true
+      t.text :body, null: false
+
+      t.timestamps
+    end
+  end
+end
