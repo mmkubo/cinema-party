@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     resources :passwords, param: :token
 
     resources :movies, only: [:show]
+    resources :users, only: [:show, :edit, :update] do
+      member do
+        patch :withdraw
+      end
+    end
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
