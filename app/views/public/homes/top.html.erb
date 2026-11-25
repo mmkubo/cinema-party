@@ -1,3 +1,12 @@
 <h1>CINEMA PARTY</h1>
 
-<p>映画を探す</p>
+<% if authenticated_user? %>
+  <p>ログイン中：<%= current_user.name %></p>
+
+  <%= button_to "ログアウト",
+                destroy_session_path,
+                method: :delete %>
+<% else %>
+  <%= link_to "新規登録", new_registration_path %>
+  <%= link_to "ログイン", new_session_path %>
+<% end %>

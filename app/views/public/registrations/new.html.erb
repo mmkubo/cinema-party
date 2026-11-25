@@ -1,0 +1,27 @@
+<h1>新規登録</h1>
+
+<%= form_with model: @user, url: registration_path do |f| %>
+  <div>
+    <%= f.label :name, "ユーザー名" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :email_address, "メールアドレス" %>
+    <%= f.email_field :email_address %>
+  </div>
+
+  <div>
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, "パスワード確認" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <%= f.submit "新規登録" %>
+<% end %>
+
+<%= link_to "ログインはこちら", new_session_path %>
