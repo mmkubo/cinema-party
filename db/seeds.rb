@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Movie.create!(
+  title: "テスト映画",
+  plot_summary: "映画詳細画面の表示確認用データです。",
+  release_date: Date.new(2026, 1, 1),
+  director: "テスト監督"
+)

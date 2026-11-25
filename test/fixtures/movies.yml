@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  plot_summary: MyText
+  release_date: 2026-11-25
+  director: MyString
+
+two:
+  title: MyString
+  plot_summary: MyText
+  release_date: 2026-11-25
+  director: MyString

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
     # パスワード再設定
     resources :passwords, param: :token
+
+    resources :movies, only: [:show]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

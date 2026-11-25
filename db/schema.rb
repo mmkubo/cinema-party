@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_11_25_035117) do
+ActiveRecord::Schema[8.0].define(version: 2026_11_25_043345) do
+  create_table "movies", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "plot_summary", null: false
+    t.date "release_date", null: false
+    t.string "director", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_movies_on_title"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
