@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     resources :passwords, param: :token
 
     resources :movies, only: [:show] do
+      collection do
+        get :search
+       end
       resources :shouts, only: [:create]
     end
 
@@ -27,7 +30,7 @@ Rails.application.routes.draw do
         patch :withdraw
       end
     end
-    
+
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

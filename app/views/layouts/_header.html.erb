@@ -9,15 +9,17 @@
 
         <span>あの映画なんだっけ？</span>
 
-        <% if Current.user.present? %>
+        <% if authenticated_user? %>
 
-          <span>MY PAGE</span>
-          <span>LOG OUT</span>
+          <%= link_to "MY PAGE", mypage_path,class: "site-nav-link text-decoration-none" %>
+          <%= link_to "LOG OUT", destroy_session_path,data: { turbo_method: :delete },
+              class: "site-nav-link text-decoration-none" %>
 
         <% else %>
 
-          <span>LOG IN</span>
-          <span>SIGN UP</span>
+          <%= link_to "LOG IN", new_session_path,class: "site-nav-link text-decoration-none" %>
+          <%= link_to "SIGN UP", new_registration_path,
+              class: "site-nav-link text-decoration-none" %>
 
         <% end %>
 

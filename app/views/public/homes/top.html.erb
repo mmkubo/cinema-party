@@ -24,20 +24,12 @@
           映画を観た、その気持ちを叫ぼう。
         </p>
 
-        <div class="input-group top-search">
-          <input
-            type="text"
-            class="form-control rounded-0 border-dark py-3"
-            placeholder="映画タイトルを入力"
-          >
-
-          <button
-            class="btn rounded-0 border-dark px-4"
-            type="button"
-          >
-            SEARCH
-          </button>
-        </div>
+        <%= form_with url: search_movies_path,method: :get,
+              class: "input-group top-search" do |form| %>
+          <%= form.text_field :keyword,class: "form-control rounded-0 border-dark py-3",
+              placeholder: "映画タイトルを入力" %>
+          <%= form.submit "SEARCH",class: "btn rounded-0 border-dark px-4" %>
+        <% end %>
 
       </div>
 

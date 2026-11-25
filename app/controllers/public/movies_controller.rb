@@ -7,4 +7,12 @@ class Public::MoviesController < Public::ApplicationController
     @shout = Shout.new
     @shouts = @movie.shouts.order(created_at: :desc)
   end
+
+  def search
+    if params[:keyword].present?
+      @movies = Movie.where("title LIKE ?", "%#{params[:keyword]}%")
+    else
+      @movies = Movie.none
+    end
+  end
 end
