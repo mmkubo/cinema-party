@@ -67,4 +67,4 @@ group :production do
   gem 'mysql2'
 end
 
-gem "json", "< 3.0"
+gem "json", "< 4.0"
