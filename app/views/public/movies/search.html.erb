@@ -1,5 +1,73 @@
-<% @movies.each do |movie| %>
-  <p>
-    <%= link_to movie.title, movie_path(movie) %>
-  </p>
-<% end %>
+<section class="w-100 py-5" style="background-color: var(--cinema-bg);">
+  <div class="container">
+
+    <h1 class="fw-bold mb-4" style="color: var(--cinema-accent);">
+      SEARCH MOVIES
+    </h1>
+
+    <%= form_with url: search_movies_path,method: :get,
+        class: "input-group top-search mb-5" do |form| %>
+
+      <%= form.text_field :keyword,
+          value: params[:keyword],
+          class: "form-control rounded-0 border-dark py-3",
+          placeholder: "映画タイトルを入力" %>
+
+      <%= form.submit "SEARCH",class: "btn rounded-0 border-dark px-4" %>
+
+    <% end %>
+
+    <div class="mb-3">
+      <p class="mb-1">
+        RESULTS FOR<strong>“<%= params[:keyword] %>”</strong>
+      </p>
+
+      <small><%= pluralize(@movies.count, "MOVIE") %></small>
+    </div>
+
+    <% if @movies.any? %>
+
+      <div class="border-top border-dark">
+
+        <% @movies.each do |movie| %>
+          <%= link_to movie_path(movie),class: "d-block text-decoration-none text-dark border-bottom border-dark py-4" do %>
+
+            <div class="row align-items-center">
+
+              <div class="col-2">
+                <span class="small">MOVIE</span>
+              </div>
+
+              <div class="col-10">
+                <h2 class="fs-3 fw-bold mb-2">
+                  <%= movie.title %>
+                </h2>
+
+                <p class="mb-0">
+                  <%= movie.release_date.year %>/<%= movie.director %>
+                </p>
+              </div>
+
+            </div>
+
+          <% end %>
+        <% end %>
+
+      </div>
+
+    <% else %>
+
+      <div class="border-top border-dark py-5">
+        <h2 class="fs-4 fw-bold">
+          NO MOVIES FOUND.
+        </h2>
+
+        <p class="mb-0">
+          “<%= params[:keyword] %>” に一致する作品が見つかりませんでした。
+        </p>
+      </div>
+
+    <% end %>
+
+  </div>
+</section>
