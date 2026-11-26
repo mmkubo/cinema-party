@@ -1,42 +1,88 @@
-<h1><%= @movie.title %></h1>
+<section class="w-100 py-5" style="background-color: var(--cinema-bg);">
+  <div class="container">
 
-<div>
-  <p>公開日：<%= @movie.release_date %></p>
-  <p>監督：<%= @movie.director %></p>
-</div>
+    <div class="row g-5">
 
-<div>
-  <h2>あらすじ</h2>
-  <p><%= @movie.plot_summary %></p>
-</div>
+      <div class="col-12 col-lg-5">
 
-<h2>Shout</h2>
+        <p class="small mb-2">MOVIE</p>
+        <h1 class="display-4 fw-bold mb-5" style="color: var(--cinema-accent);">
+          <%= @movie.title %>
+        </h1>
 
-  <% if authenticated_user? %>
-    <%= form_with model: [@movie, @shout] do |f| %>
-      <div>
-        <%= f.text_area :body, placeholder: "この映画について叫ぶ", required: true %>
+        <div class="border-top border-dark">
+          <div class="d-flex justify-content-between border-bottom border-dark py-3">
+            <span>RELEASE</span>
+            <span><%= @movie.release_date %></span>
+          </div>
+          <div class="d-flex justify-content-between border-bottom border-dark py-3">
+            <span>DIRECTOR</span>
+            <span><%= @movie.director %></span>
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <h2 class="fs-6 fw-bold mb-3">PLOT</h2>
+          <p class="lh-lg"><%= @movie.plot_summary %></p>
+        </div>
+      
       </div>
 
-      <%= f.submit "Shout" %>
-    <% end %>
-  <% else %>
-    <p>ログインが必要です。</p>
-  <% end %>
+      <div class="col-12 col-lg-7">
 
-  <% @shouts.each do |shout| %>
-    <div>
-      <p><%= shout.user.name %></p>
-      <p><%= shout.body %></p>
+        <div class=
+          "d-flex justify-content-between align-items-end border-bottom border-dark pb-3">
 
-      <% if Current.user == shout.user %>
-        <%= button_to "削除",
+          <h2 class="display-6 fw-bold mb-0">Shout</h2>
+          <span class="small"><%= @shouts.count %> SHOUTS </span>
+        
+        </div>
+
+        <% if authenticated_user? %>
+
+          <%= form_with model: [@movie, @shout], class: "my-4" do |f| %>
+            <%= f.text_area :body, class: "form-control rounded-0 border-dark",
+                rows: 3, placeholder: "この映画について叫ぶ", required: true %>
+
+            <div class="d-flex justify-content-end mt-2">
+              <%= f.submit "Shout", class: "btn rounded-0 border-dark px-4",
+                  style: "background-color: var(--cinema-accent); color: var(--cinema-light);" %>
+            </div>
+          <% end %>
+
+        <% else %>
+          <p class="my-4">ログインが必要です。</p>
+        <% end %>
+
+        <div class="border-top border-dark">
+
+          <% @shouts.each do |shout| %>
+            <div class="border-bottom border-dark py-2">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <strong><%= shout.user.name %></strong>
+
+                <% if Current.user == shout.user %>
+                  <%= button_to "削除",
                       shout_path(shout),
                       method: :delete,
-                      data: { turbo_confirm: "削除しますか？" } %>
-      <% end %>
+                      data: { turbo_confirm: "削除しますか？" },
+                      class: "btn btn-sm btn-outline-dark rounded-0" %>
+                <% end %>
+              </div>
+              
+              <p class="mb-0"><%= shout.body %></p>
+            </div>
+          <% end %>
+
+        </div>
+
+      </div>
+
     </div>
-  <% end %>
 
+    <div class="border-top border-dark mt-5 pt-4">
+      <h2 class="display-6 fw-bold mb-0">Note</h2>
+    </div>
 
-<h2>Note</h2>
+  </div>
+</section>

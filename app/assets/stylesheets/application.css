@@ -84,11 +84,6 @@
   max-width: 520px;
 }
 
-.top-search .form-control {
-  background-color: var(--cinema-light);
-  color: var(--cinema-text);
-}
-
 .top-search .form-control::placeholder {
   color: #777;
 }
@@ -116,6 +111,18 @@
   background-color: var(--cinema-light);
   color: var(--cinema-text);
   letter-spacing: 1px;
+}
+
+/* フォーム */
+
+.form-control {
+  background-color: var(--cinema-light);
+  color: var(--cinema-text);
+}
+.form-control:focus {
+  background-color: var(--cinema-light);
+  border-color: var(--cinema-text);
+  box-shadow: none;
 }
 
 
