@@ -1,23 +1,65 @@
-<h1>マイページ</h1>
+<section class="w-100 py-5" style="background-color: var(--cinema-bg);">
+  <div class="container">
 
-<div>
-  <p>ユーザー名：<%= @user.name %></p>
-  <p>メールアドレス：<%= @user.email_address %></p>
+    <h1 class="fw-bold mb-5" style="color: var(--cinema-accent);">MY PAGE</h1>
 
-  <%= link_to "プロフィール編集", edit_user_path(@user) %>
-</div>
+    <div class="d-flex justify-content-between align-items-end 
+      border-bottom border-dark pb-4 mb-5">
 
-<div>
-  <h2>観る予定</h2>
-  <p>観る予定の映画はまだありません。</p>
-</div>
+      <div>
+        <h2 class="fs-2 fw-bold mb-2"><%= @user.name %></h2>
+        <p class="mb-0"><%= @user.email_address %></p>
+      </div>
 
-<div>
-  <h2>Note</h2>
-  <p>投稿したNoteはまだありません。</p>
-</div>
+      <%= link_to "EDIT PROFILE", 
+          edit_user_path(@user), class: "text-dark text-decoration-none" %>
+    
+    </div>
 
-<div>
-  <h2>Q&A</h2>
-  <p>投稿したQ&Aはまだありません。</p>
-</div>
+    <div class="border-bottom border-dark py-4">
+
+      <div class="row">
+        <div class="col-2">
+          <span class="fs-4 fw-bold">01</span>
+        </div>
+
+        <div class="col-10">
+          <h2 class="fs-3 fw-bold mb-3">WATCH LIST</h2>
+          <p class="mb-0">観る予定の映画はまだありません。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-bottom border-dark py-4">
+
+      <div class="row">
+        <div class="col-2">
+          <span class="fs-4 fw-bold">02</span>
+        </div>
+
+        <div class="col-10">
+          <h2 class="fs-3 fw-bold mb-3">Note</h2>
+          <p class="mb-0">投稿したNoteはまだありません。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-bottom border-dark py-4">
+
+      <div class="row">
+        <div class="col-2">
+          <span class="fs-4 fw-bold">03</span>
+        </div>
+
+        <div class="col-10">
+          <h2 class="fs-3 fw-bold mb-3">Q&A</h2>
+          <p class="mb-0">投稿したQ&Aはまだありません。</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

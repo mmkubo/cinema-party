@@ -6,6 +6,7 @@ class Public::UsersController < Public::ApplicationController
   end
 
   def show
+    @shouts = @user.shouts.order(created_at: :desc).limit(10)
   end
 
   def edit

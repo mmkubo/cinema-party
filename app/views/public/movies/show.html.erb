@@ -59,7 +59,8 @@
           <% @shouts.each do |shout| %>
             <div class="border-bottom border-dark py-2">
               <div class="d-flex justify-content-between align-items-center mb-2">
-                <strong><%= shout.user.name %></strong>
+                <%= link_to shout.user.name,user_path(shout.user),
+                    class: "fw-bold text-dark text-decoration-none" %>
 
                 <% if Current.user == shout.user %>
                   <%= button_to "削除",

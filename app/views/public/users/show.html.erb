@@ -1,7 +1,43 @@
-<h1>ユーザー詳細</h1>
+<section class="w-100 py-5" style="background-color: var(--cinema-bg);">
+  <div class="container">
 
-<p>ユーザー名：<%= @user.name %></p>
+    <p class="small mb-2">USER</p>
 
-<% if current_user == @user %>
-  <%= link_to "プロフィール編集", edit_user_path(@user) %>
-<% end %>
+    <h1 class="fw-bold mb-5" style="color: var(--cinema-accent);">
+      <%= @user.name %>
+    </h1>
+
+    <div class="border-top border-dark py-4">
+
+      <h2 class="fs-3 fw-bold mb-4">RECENT SHOUTS</h2>
+
+      <% if @shouts.any? %>
+        <% @shouts.each do |shout| %>
+          <div class="border-bottom border-dark py-3">
+
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <%= link_to shout.movie.title, movie_path(shout.movie),
+                  class: "fw-bold text-dark text-decoration-none" %>
+
+              <span class="small">
+                <%= shout.created_at.strftime("%Y.%m.%d") %>
+              </span>
+            </div>
+
+            <p class="mb-0 ms-2"><%= shout.body %></p>
+
+          </div>
+        <% end %>
+      <% else %>
+        <p>まだShoutはありません。</p>
+      <% end %>
+
+    </div>
+
+    <div class="border-bottom border-dark py-4">
+      <h2 class="fs-3 fw-bold mb-3">WATCH LIST</h2>
+      <p class="mb-0">観る予定の映画はまだありません。</p>
+    </div>
+
+  </div>
+</section>
