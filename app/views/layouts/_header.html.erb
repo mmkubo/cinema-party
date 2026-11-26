@@ -1,13 +1,27 @@
 <header class="border-bottom border-dark">
   <nav class="navbar">
-    <div class="container">
-
-      <%= link_to "CINEMA PARTY", root_path,
-          class: "navbar-brand fw-bold" %>
+    <div class="container d-flex align-items-center justify-content-between">
 
       <div class="d-flex align-items-center gap-4">
-
+        <%= link_to "CINEMA PARTY", root_path,class: "navbar-brand fs-4 fw-bold mb-0" %>
         <span>あの映画なんだっけ？</span>
+      </div>
+      
+      <div class="d-flex align-items-center gap-4">
+        <% unless current_page?(root_path) %>
+          <%= form_with url: search_movies_path,method: :get,
+              class: "d-flex align-items-center border border-dark rounded-pill px-3",
+              style: "width: 320px; background-color: var(--cinema-light);" do |form| %>
+
+            <%= image_tag "search.svg", width: 18, class: "me-2" %>
+
+            <%= form.text_field :keyword,value: params[:keyword],
+                class: "form-control border-0 bg-transparent shadow-none p-1",
+                placeholder: "映画を検索する..." %>
+
+            <%= form.submit "検索", class: "visually-hidden" %>
+          <% end %>
+        <% end %>
 
         <% if authenticated_user? %>
 
@@ -22,7 +36,6 @@
               class: "site-nav-link text-decoration-none" %>
 
         <% end %>
-
       </div>
 
     </div>

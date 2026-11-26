@@ -15,4 +15,8 @@ class Public::MoviesController < Public::ApplicationController
       @movies = Movie.none
     end
   end
+
+  def index
+    @movies = Movie.order(created_at: :desc)
+  end
 end

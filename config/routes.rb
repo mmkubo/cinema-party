@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     # パスワード再設定
     resources :passwords, param: :token
 
-    resources :movies, only: [:show] do
+    resources :movies, only: [:show, :index] do
       collection do
         get :search
        end

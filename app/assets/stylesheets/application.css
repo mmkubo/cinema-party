@@ -22,12 +22,7 @@
   --cinema-light: #f7f4ee;
 }
 
-
 /* Header */
-
-.site-header {
-  background-color: var(--cinema-light);
-}
 
 .site-logo {
   color: var(--cinema-text);
@@ -108,7 +103,6 @@
 /* Footer */
 
 .site-footer {
-  background-color: var(--cinema-light);
   color: var(--cinema-text);
   letter-spacing: 1px;
 }
@@ -124,7 +118,6 @@
   border-color: var(--cinema-text);
   box-shadow: none;
 }
-
 
 /* Responsive */
 
