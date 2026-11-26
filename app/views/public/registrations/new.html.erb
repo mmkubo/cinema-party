@@ -1,27 +1,55 @@
-<h1>新規登録</h1>
+<section class="w-100 py-5" style="background-color: var(--cinema-bg);">
+  <div class="container">
 
-<%= form_with model: @user, url: registration_path do |f| %>
-  <div>
-    <%= f.label :name, "ユーザー名" %>
-    <%= f.text_field :name %>
+    <div class="row">
+      <div class="col-12 col-md-7 col-lg-5">
+
+        <p class="small mb-2">WELCOME</p>
+
+        <h1 class="fw-bold mb-5" style="color: var(--cinema-accent);">
+          SIGN UP
+        </h1>
+
+        <%= form_with model: @user, url: registration_path do |f| %>
+
+          <div class="mb-4">
+            <%= f.label :name, "USER NAME",class: "form-label small fw-bold" %>
+            <%= f.text_field :name, class: "form-control rounded-0 border-dark py-3",
+                placeholder: "Enter your user name" %>
+          </div>
+
+          <div class="mb-4">
+            <%= f.label :email_address, "EMAIL",class: "form-label small fw-bold" %>
+            <%= f.email_field :email_address,class: "form-control rounded-0 border-dark py-3",
+                placeholder: "Enter your email address" %>
+          </div>
+
+          <div class="mb-4">
+            <%= f.label :password, "PASSWORD",class: "form-label small fw-bold" %>
+            <%= f.password_field :password,class: "form-control rounded-0 border-dark py-3",
+                placeholder: "Enter your password" %>
+          </div>
+
+          <div class="mb-4">
+            <%= f.label :password_confirmation, "PASSWORD CONFIRMATION",
+                class: "form-label small fw-bold" %>
+            <%= f.password_field :password_confirmation,
+                class: "form-control rounded-0 border-dark py-3",
+                placeholder: "Enter your password again" %>
+          </div>
+
+          <div class="d-flex align-items-center gap-4">
+            <%= f.submit "SIGN UP",
+                class: "btn rounded-0 border-dark px-5 py-2",
+                style: "background-color: var(--cinema-accent); color: var(--cinema-light);" %>
+            <%= link_to "Already have an account?",new_session_path,
+                class: "small text-dark" %>
+          </div>
+
+        <% end %>
+
+      </div>
+    </div>
+
   </div>
-
-  <div>
-    <%= f.label :email_address, "メールアドレス" %>
-    <%= f.email_field :email_address %>
-  </div>
-
-  <div>
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password %>
-  </div>
-
-  <div>
-    <%= f.label :password_confirmation, "パスワード確認" %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <%= f.submit "新規登録" %>
-<% end %>
-
-<%= link_to "ログインはこちら", new_session_path %>
+</section>

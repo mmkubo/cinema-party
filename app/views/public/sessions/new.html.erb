@@ -1,11 +1,58 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<section class="w-100 py-5" style="background-color: var(--cinema-bg);">
+  <div class="container">
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
-<% end %>
-<br>
+    <div class="row">
+      <div class="col-12 col-md-7 col-lg-5">
 
-<%= link_to "Forgot password?", new_password_path %>
+        <p class="small mb-2">WELCOME BACK</p>
+
+        <h1 class="fw-bold mb-5" style="color: var(--cinema-accent);">
+          LOG IN
+        </h1>
+
+        <% if flash[:alert] %>
+          <p class="mb-4"><%= flash[:alert] %></p>
+        <% end %>
+
+        <% if flash[:notice] %>
+          <p class="mb-4"><%= flash[:notice] %></p>
+        <% end %>
+
+        <%= form_with url: session_path do |form| %>
+          <div class="mb-4">
+
+            <%= form.label :email_address, "EMAIL",class: "form-label small fw-bold" %>
+
+            <%= form.email_field :email_address, required: true, autofocus: true, 
+                autocomplete: "username", placeholder: "Enter your email address", 
+                value: params[:email_address],
+                class: "form-control rounded-0 border-dark py-3" %>
+
+          </div>
+          <div class="mb-3">
+
+            <%= form.label :password, "PASSWORD",class: "form-label small fw-bold" %>
+
+            <%= form.password_field :password, required: true, autocomplete: "current-password", 
+                placeholder: "Enter your password", maxlength: 72, 
+                class: "form-control rounded-0 border-dark py-3" %>
+
+          </div>
+          <div class="text-end mb-5">
+
+            <%= link_to "Forgot password?",new_password_path,
+                class: "small text-dark" %>
+
+          </div>
+
+          <%= form.submit  "LOG IN",
+            class: "btn rounded-0 border-dark px-5 py-2",
+            style: "background-color: var(--cinema-accent); color: var(--cinema-light);" %>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
