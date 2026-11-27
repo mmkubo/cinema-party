@@ -27,7 +27,7 @@ class Public::UsersController < Public::ApplicationController
   def withdraw
     Current.user.update(is_active: false)
     terminate_session
-    redirect_to root_path, notice: "退会しました。"
+    redirect_to new_registration_path
   end
 
   private

@@ -10,20 +10,12 @@
           LOG IN
         </h1>
 
-        <% if flash[:alert] %>
-          <p class="mb-4"><%= flash[:alert] %></p>
-        <% end %>
-
-        <% if flash[:notice] %>
-          <p class="mb-4"><%= flash[:notice] %></p>
-        <% end %>
-
         <%= form_with url: session_path do |form| %>
           <div class="mb-4">
 
             <%= form.label :email_address, "EMAIL",class: "form-label small fw-bold" %>
 
-            <%= form.email_field :email_address, required: true, autofocus: true, 
+            <%= form.email_field :email_address, autofocus: true, 
                 autocomplete: "username", placeholder: "Enter your email address", 
                 value: params[:email_address],
                 class: "form-control rounded-0 border-dark py-3" %>
@@ -33,7 +25,7 @@
 
             <%= form.label :password, "PASSWORD",class: "form-label small fw-bold" %>
 
-            <%= form.password_field :password, required: true, autocomplete: "current-password", 
+            <%= form.password_field :password, autocomplete: "current-password", 
                 placeholder: "Enter your password", maxlength: 72, 
                 class: "form-control rounded-0 border-dark py-3" %>
 

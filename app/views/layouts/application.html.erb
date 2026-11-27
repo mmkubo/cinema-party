@@ -36,6 +36,18 @@
 
   <body class="d-flex flex-column min-vh-100">
     <%= render "layouts/header" %>
+    
+      <% if flash[:notice] %>
+        <div class="container py-3">
+          <p class="mb-0"><%= flash[:notice] %></p>
+        </div>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <div class="container py-3">
+          <p class="mb-0"><%= flash[:alert] %></p>
+        </div>
+      <% end %>
 
     <main class="flex-grow-1 d-flex">
       <%= yield %>

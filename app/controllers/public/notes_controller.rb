@@ -13,7 +13,7 @@ class Public::NotesController < Public::ApplicationController
     @note.user = Current.user
 
     if @note.save
-      redirect_to note_path(@note), notice: "Noteを投稿しました。"
+      redirect_to note_path(@note)
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class Public::NotesController < Public::ApplicationController
 
   def update
    if @note.update(note_params)
-      redirect_to note_path(@note), notice: "Noteを更新しました。"
+      redirect_to note_path(@note)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class Public::NotesController < Public::ApplicationController
     movie = @note.movie
     @note.destroy
 
-    redirect_to movie_path(movie), notice: "Noteを削除しました。"
+    redirect_to movie_path(movie)
   end
 
   private

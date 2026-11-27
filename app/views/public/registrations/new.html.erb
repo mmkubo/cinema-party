@@ -10,6 +10,29 @@
           SIGN UP
         </h1>
 
+        <% if @user.errors.any? %>
+          <div class="border border-dark p-3 mb-4">
+            <p class="fw-bold mb-2">入力内容を確認してください</p>
+
+            <ul class="mb-0">
+              <% @user.errors.each do |error| %>
+                <li>
+                  <%= case error.attribute
+                      when :name
+                        "ユーザー名を入力してください"
+                      when :email_address
+                        "メールアドレスを入力してください"
+                      when :password
+                        "パスワードを入力してください"
+                      when :password_confirmation
+                        "パスワード確認を入力してください"
+                      end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
         <%= form_with model: @user, url: registration_path do |f| %>
 
           <div class="mb-4">
