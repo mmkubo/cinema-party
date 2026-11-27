@@ -1,8 +1,40 @@
-<h1>Forgot your password?</h1>
+<% set_breadcrumbs ["HOME", root_path], ["LOG IN", new_session_path],
+                   ["RESET PASSWORD", nil] %>
 
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<section class="w-100 pt-3 pb-5" style="background-color: var(--cinema-bg);">
+  <div class="container">
 
-<%= form_with url: passwords_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.submit "Email reset instructions" %>
-<% end %>
+    <div class="row">
+      <div class="col-12 col-md-7 col-lg-5">
+
+        <p class="small mb-2">PASSWORD</p>
+
+        <h1 class="fw-bold mb-4" style="color: var(--cinema-accent);">
+          RESET PASSWORD
+        </h1>
+
+        <p class="mb-5">登録しているメールアドレスを入力してください。</p>
+
+        <%= form_with url: passwords_path do |form| %>
+
+          <div class="mb-5">
+            <%= form.label :email_address, "EMAIL", class: "form-label small fw-bold" %>
+
+            <%= form.email_field :email_address,
+                autofocus: true, autocomplete: "username",
+                placeholder: "Enter your email address",
+                value: params[:email_address],
+                class: "form-control rounded-0 border-dark py-3" %>
+          </div>
+
+          <%= form.submit "SEND RESET EMAIL",
+              class: "btn rounded-0 border-dark px-5 py-2",
+              style: "background-color: var(--cinema-accent); color: var(--cinema-light);" %>
+
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</section>

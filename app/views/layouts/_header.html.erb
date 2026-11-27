@@ -1,43 +1,40 @@
 <header class="border-bottom border-dark">
-  <nav class="navbar">
+  <nav class="navbar pt-2 pb-0">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <div class="d-flex align-items-center gap-4">
-        <%= link_to "CINEMA PARTY", root_path,class: "navbar-brand fs-4 fw-bold mb-0" %>
-        <span>あの映画なんだっけ？</span>
-      </div>
-      
+      <%= link_to "CINEMA PARTY", root_path, class: "navbar-brand fw-bold mb-0",
+          style: "font-size: 28px;" %>
+
       <div class="d-flex align-items-center gap-4">
         <% unless current_page?(root_path) %>
           <%= form_with url: search_movies_path,method: :get,
-              class: "d-flex align-items-center border border-dark rounded-pill px-3",
-              style: "width: 320px; background-color: var(--cinema-light);" do |form| %>
+            class: "d-flex align-items-center border border-dark rounded-pill px-3 ms-auto",
+            style: "width: 320px; background-color: var(--cinema-light);" do |form| %>
 
             <%= image_tag "search.svg", width: 18, class: "me-2" %>
 
             <%= form.text_field :keyword,value: params[:keyword],
                 class: "form-control border-0 bg-transparent shadow-none p-1",
-                placeholder: "映画を検索する..." %>
+                style: "font-size: 14px;", placeholder: "映画を検索する..." %>
 
             <%= form.submit "検索", class: "visually-hidden" %>
           <% end %>
         <% end %>
 
-        <% if authenticated_user? %>
+        <span class="site-nav-link">映画Q&A</span>
 
+        <% if authenticated_user? %>
           <%= link_to "MY PAGE", mypage_path,class: "site-nav-link text-decoration-none" %>
           <%= link_to "LOG OUT", destroy_session_path,data: { turbo_method: :delete },
               class: "site-nav-link text-decoration-none" %>
-
         <% else %>
-
           <%= link_to "LOG IN", new_session_path,class: "site-nav-link text-decoration-none" %>
           <%= link_to "SIGN UP", new_registration_path,
               class: "site-nav-link text-decoration-none" %>
-
         <% end %>
       </div>
 
     </div>
   </nav>
+  <%= render "layouts/breadcrumbs" %>
 </header>

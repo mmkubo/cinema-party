@@ -1,3 +1,7 @@
+<% set_breadcrumbs ["HOME", root_path],["MOVIES", movies_path],
+                   [@note.movie.title, movie_path(@note.movie)],
+                   [@note.title, note_path(@note)],["EDIT", nil] %>
+
 <%= turbo_frame_tag dom_id(@note) do %>
 
   <p class="small mb-2">NOTE</p>
