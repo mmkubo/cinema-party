@@ -1,4 +1,4 @@
-# CINEMA PARTY（仮）
+# CINEMA PARTY
 ## サイト概要
 ### サイトテーマ
 映画を中心に人が集まり、その時に感じたことや「好き」を共有しながら、同じ作品を誰かと一緒に楽しめる映画SNSです。
@@ -27,15 +27,17 @@
 - 昔観た映画の内容や場面は覚えているものの、タイトルを思い出せず探したい時
 ​
 ## 設計書
-後ほど作成予定
+- [UIフロー](https://drive.google.com/file/d/19fS8HP2xkRdXLJ4p3UxljxFqa-MUpkak/view?usp=sharing)
+- [ER図](https://drive.google.com/file/d/1duKH_lczP7F8iHdNHjsqJOPq-9GMPfkY/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1iVYj1lm8qJ2p4JsvUpOvTjU0r2NvZfuVEVkslWZScdQ/edit?usp=sharing)
+- [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/13-o251OF2Tn3UaqvfwlAvxcfeHQ7ljLjstoqsKVpH3Y/edit?usp=sharing)
 ​
 ## 開発環境
 - OS：Windows
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
 - IDE：Visual Studio Code（VSCode）
 ​
 ## 使用素材
-著作権を考慮し、架空のデータを扱う予定です。
+著作権を考慮し、架空のデータを使用しています。
 なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
