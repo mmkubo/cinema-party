@@ -3,6 +3,7 @@ class Public::UsersController < Public::ApplicationController
 
   def mypage
     @user = Current.user
+    @notes = @user.notes.order(created_at: :desc)
   end
 
   def show

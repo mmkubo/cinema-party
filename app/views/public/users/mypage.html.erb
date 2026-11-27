@@ -40,7 +40,26 @@
 
         <div class="col-10">
           <h2 class="fs-3 fw-bold mb-3">Note</h2>
-          <p class="mb-0">投稿したNoteはまだありません。</p>
+
+          <% if @notes.any? %>
+            <% @notes.each do |note| %>
+              <div class="border-bottom border-dark py-3">
+
+                <p class="small mb-1"><%= note.movie.title %></p>
+
+                <div class="d-flex align-items-baseline flex-wrap">
+                  <%= link_to note.title,note_path(note),
+                      class: "fw-bold fs-5 text-dark text-decoration-none" %>
+
+                  <span class="small ms-4"><%= note.created_at.strftime("%Y.%m.%d") %></span>
+                </div>
+
+              </div>
+            <% end %>
+
+          <% else %>
+            <p class="mb-0">投稿したNoteはまだありません。</p>
+          <% end %>
         </div>
       </div>
 

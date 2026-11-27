@@ -6,6 +6,7 @@ class Public::MoviesController < Public::ApplicationController
     @movie = Movie.find(params[:id])
     @shout = Shout.new
     @shouts = @movie.shouts.order(created_at: :desc)
+    @notes = @movie.notes.order(created_at: :desc)
   end
 
   def search

@@ -21,9 +21,12 @@ Rails.application.routes.draw do
         get :search
        end
       resources :shouts, only: [:create]
+      resources :notes, only: [:new, :create]
     end
 
     resources :shouts, only: [:destroy]
+
+    resources :notes, only: [:show, :edit, :update, :destroy]
 
     resources :users, only: [:show, :edit, :update] do
       member do

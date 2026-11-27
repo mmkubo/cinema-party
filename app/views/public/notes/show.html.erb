@@ -1,0 +1,43 @@
+<section class="w-100 py-5" style="background-color: var(--cinema-bg);">
+  <div class="container">
+    <div class="row">
+
+      <%= render "movie_info", movie: @movie %>
+
+      <div class="col-12 col-lg-7 offset-lg-1">
+
+        <%= turbo_frame_tag dom_id(@note) do %>
+          <p class="small mb-2">NOTE</p>
+
+          <h1 class="fw-bold mb-4" style="color: var(--cinema-accent); font-size: 38px;">
+            <%= @note.title %>
+          </h1>
+
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <span class="fw-bold"><%= @note.user.name %></span>
+            <span class="small"><%= @note.created_at.strftime("%Y.%m.%d") %></span>
+          </div>
+
+          <div class="border-top border-dark pt-4 mb-5">
+            <%= simple_format(@note.body) %>
+          </div>
+
+          <% if @note.user == Current.user %>
+            <div class="d-flex gap-3">
+              <%= link_to "EDIT",edit_note_path(@note),
+                  class: "btn btn-outline-dark rounded-0 px-4" %>
+
+              <%= button_to "DELETE",
+                  note_path(@note),
+                  method: :delete,
+                  data: { turbo_confirm: "このNoteを削除しますか？" },
+                  class: "btn btn-outline-dark rounded-0 px-4" %>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</section>

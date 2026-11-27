@@ -87,8 +87,45 @@
 
     </div>
 
-    <div class="border-top border-dark mt-5 pt-4">
-      <h2 class="display-6 fw-bold mb-0">Note</h2>
+    <div class="border-top border-dark pt-4 mt-5">
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold mb-0">Note</h2>
+
+        <% if authenticated_user? %>
+          <%= link_to "WRITE NOTE",new_movie_note_path(@movie),
+              class: "btn btn-outline-dark rounded-0" %>
+        <% end %>
+      </div>
+
+      <% if @notes.any? %>
+
+        <% @notes.each do |note| %>
+          <div class="border-bottom border-dark py-3">
+
+            <div class="d-flex align-items-baseline flex-wrap mb-2">
+
+              <%= link_to note.title,note_path(note),
+                  class: "fw-bold fs-5 text-dark text-decoration-none" %>
+
+              <div class="d-flex gap-3 small ms-4">
+                <span><%= note.user.name %></span>
+                <span><%= note.created_at.strftime("%Y.%m.%d") %></span>
+              </div>
+
+            </div>
+
+            <p class="mb-0 mt-2 ms-2">
+              <%= "　#{truncate(note.body, length: 60)}" %>
+            </p>
+
+          </div>
+        <% end %>
+
+      <% else %>
+        <p>まだNoteはありません。</p>
+      <% end %>
+
     </div>
 
   </div>
